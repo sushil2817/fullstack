@@ -19,7 +19,6 @@ let studentProfile = {
     hometown: undefined,
     skills: ["HTML", "CSS", "JavaScript", "React", "NodeJS"]
 }
-
 console.log(name);
 console.log(age);
 console.log(isPaid);
