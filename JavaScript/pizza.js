@@ -16,5 +16,4 @@ if(numberOfGuest < 4){
 }else if(numberOfGuest >= 5){
     pizzaSize = "large"
     console.log("Order the pizza with size "+pizzaSize);
-    
 }
