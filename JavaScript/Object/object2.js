@@ -10,6 +10,9 @@ let s1 = {
 
 const s1kaString  = JSON.stringify(s1)
 
+console.log(s1kaString);
+
+
 let s2 = JSON.parse(s1kaString)
 
 
