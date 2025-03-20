@@ -30,9 +30,10 @@ console.log(teas);
 console.log("origin" in teas);
 
 // Problem 7: print all property using forin loop
+// console.log("print object");
 
-for(let key in teas){
-    console.log(key+": "+teas[key]);
+for(let i in teas){
+    console.log(i+": "+teas[i]);
 }
 
 // Problem 8: create a nested object representing diffrent type of teas and their properties.
@@ -48,7 +49,7 @@ const myTeas = {
 
 // Problem 9: creat a copy of the tea object
 
-const teaCopy = {...teas } // shallow copy
+const teaCopy = {...teas } // shallow copy you can change the value but in deep you can create/copy new object
 const anotherCopy = teas // reference to the variable
 
 
