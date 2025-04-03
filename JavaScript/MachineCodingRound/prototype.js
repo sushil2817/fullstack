@@ -46,7 +46,6 @@ console.log(rat);
 if(!Array.prototype.myMap){
     Array.prototype.MyMap = function(useFn){
         const result = []
-
         for(let i=0;i<this.length;i++){
             const value = useFn(this[i],i)
             result.push(value)
@@ -54,3 +53,25 @@ if(!Array.prototype.myMap){
         return result
     }
 }
+
+
+
+// Filter
+// Signature: return -new array
+// agar user ka function True return karta hai to current value ko new array mai include kar leta hai
+
+
+if(!Array.prototype.myFilter){
+    Array.prototype.myFilter = function(userFn){
+        const result = []
+        for(let i=0;i<this.length;i++){
+            if(userFn(this[i])){
+                result.push(this[i]);
+            }
+        }
+        return result
+    }
+}
+
+const n3 = arr.myFilter((j)=>j%3==0);
+console.log(n3);
