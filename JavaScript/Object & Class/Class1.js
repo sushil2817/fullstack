@@ -48,5 +48,18 @@ console.log(obj2.toString());
 
 
 
+// Arrow function
 
+const add = (x,y)=>{
+    return x+y
+}
 
+const addSum = (x,y) => returnx+y
+
+const addSum2 = (x,y)=> x+y
+
+arr.map((value)=> value*2);
+
+arr.map(function(value){
+    return value*2
+})
