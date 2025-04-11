@@ -82,14 +82,12 @@ console.log(message.toLowerCase());
 console.log(message.toLocaleLowerCase());
 console.log(message.toLocaleUpperCase());
 
-
 console.log(message.indexOf("w"));
 console.log(message.slice(0,5));
 
 let myName = 'Sushil'
 
-let greeting = `Hello ${myName}, 
-                from Earth`
+let greeting = `Hello ${myName}, from Earth`
 
 // console.log(greeting); 
 
