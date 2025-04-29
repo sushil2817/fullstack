@@ -1,0 +1,15 @@
+{
+  "name": "fullstack-project",
+  "version": "1.0.0",
+  "description": "a node project for authentication",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sushil Kumawat",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
