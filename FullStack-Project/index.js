@@ -33,7 +33,8 @@ app.get('/sushil2', (req, res) => {
 });
 
 
-// connect todb
+// connect to db
+
 db();
 
 app.listen(port, () => {
