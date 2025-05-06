@@ -40,7 +40,7 @@ app.get('/sushil2', (req, res) => {
 db();
 // user routes
 
-app.use("/api/v1/users/", userRoutes)
+app.use("/api/v1/users", userRoutes)
 
 
 app.listen(port, () => {
