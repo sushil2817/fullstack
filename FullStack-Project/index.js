@@ -37,14 +37,10 @@ app.get('/sushil', (req, res) => {
 app.get('/sushil2', (req, res) => {
   res.send('Hello sushil');
 });
-
 // connect to db
 db();
 // user routes
-
 app.use("/api/v1/users", userRoutes)
-
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
