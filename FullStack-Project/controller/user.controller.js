@@ -15,9 +15,6 @@ const registerUser = async (req,res) =>{
         //send success status to user
 
         // console.log(req)
-
-        
-
         const {name,email,password} = req.body
 
         // if(password.length > 6){
@@ -25,7 +22,7 @@ const registerUser = async (req,res) =>{
         //    }
         if(!name || !email || !password){
             return res.status(400).json({
-                 messgae:"All fileds are required"
+                messgae:"All fileds are required"
             })
         }
         
@@ -44,7 +41,7 @@ const registerUser = async (req,res) =>{
             })
 
             if(!user){
-                 return res.status(400).json({
+                return res.status(400).json({
                     message:"User not registered."
                 })
             }
@@ -62,9 +59,9 @@ const registerUser = async (req,res) =>{
         port: process.env.MAILTRAP_PORT,
           secure: false, // true for 465, false for other ports
         auth: {
-            user: "maddison53@ethereal.email",
-            pass: "jn7jnAPss4f63QBp6D",
-        },
+            user: process.env.MAILTRAP_USERNAME,
+            pass: process.env.MAILTRAP_PASSWORD
+            }
         });
 
         const mailOption = {
