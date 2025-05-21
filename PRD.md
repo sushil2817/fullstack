@@ -5,7 +5,6 @@
 Build a HTML website for juice shop. Take this offline juice shop to online.
 
 ## Scope
-
  <!-- - What is in scope
  - What is NOT in scope
  -  -->
