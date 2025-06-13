@@ -37,7 +37,7 @@ Heads Up: Techyst is white labelled
 
 ## Table
 - User
-- Courses
+- Courses 
 - Lessons
   - ID
   - Type
