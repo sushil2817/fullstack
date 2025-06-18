@@ -40,9 +40,11 @@ const person = {
         countryCode:'IN',
         state:'RJ'
     },
+
     getFullName : function(){
         return 'Sushil Kumawat'; 
     }
+    
 }
 
 console.log(person.firstName+' ' + person.lastName);
