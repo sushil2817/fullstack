@@ -42,7 +42,9 @@ const person = {
     },
 
     getFullName : function(){
+
         return 'Sushil Kumawat'; 
+        
     }
     
 }
