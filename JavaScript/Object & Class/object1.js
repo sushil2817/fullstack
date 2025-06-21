@@ -18,15 +18,11 @@
 // console.log(person.address);
 // // use cases
 // // to represent real word entity
-
-
 // let fname = 'Sushil';
 // let fname2 = fname
-
 // console.log(fname)
 // fname2 = 'Kumawat'
 // console.log(fname2)
-
 
 const person = {
     x:10,
