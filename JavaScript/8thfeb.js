@@ -69,3 +69,6 @@ console.log(reversedTeas);
 // reduce function
 // sort function
 // arr high order functions
+
+
+//  Problem : Create an array containing different types of teas
