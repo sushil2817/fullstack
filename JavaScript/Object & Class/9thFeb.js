@@ -54,3 +54,54 @@ const anotherCopy = teas // reference to the variable
 
 
 // Problem 10:
+
+// create an object representing a type of tea with properties for name , type and caffine content
+const chai = {
+    name:"Lemon tea",
+    "tea type": "Green",
+    caffine : "low", 
+}
+
+console.log(chai.name);
+console.log(chai["tea type"]);
+
+// add a new properties origin to the tea object
+chai.origin = "China"
+// change the caffine level of the tea objkect to medium
+chai.caffine = "Medium"
+// remove the type properties from chai object
+delete chai["tea type"]
+
+// check if the tea object has a propertioes origin
+console.log("origin" in chai);
+// user a for... in loop to print all properties of the tea object
+
+for(let chai1 in chai){
+    console.log(chai+":  "+chai[chai1]);
+}
+// create a nested object representing diff types of teas and their properties
+
+const myChais = {
+    greenTea :{
+        name:"Green tea",
+        cups:{
+            one:"1",
+            two:"2"
+        }
+    },
+    blacTea:{
+        name:"Black Tea",
+        cups:{
+            one:"1",
+            two:"2"
+        }
+    }
+}
+
+//  create a copy of the teas object
+
+const chaiCopy = {
+    ...myChais
+}
+// shallow copy
+console.log(chaiCopy)
