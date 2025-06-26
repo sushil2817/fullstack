@@ -35,21 +35,13 @@ const obj2 = {
     fname:"done",
     lname:"Kumawat",
 }
-
 obj2.__proto__ = obj1
 // obj1.__proto__= null
-
 // DRY - Do not repeat yourself
-
 console.log(obj1.getFullName());
 console.log(obj2.getFullName());
 console.log(obj2.toString());
-
-
-
-
 // Arrow function
-
 const add = (x,y)=>{
     return x+y
 }
