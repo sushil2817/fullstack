@@ -18,11 +18,6 @@ const p2 = new Person('done', 'Kumawat')
 // console.log(p1.getFullName())
 // console.log(p2.getFullName())
 
-
-
-
-
-
 const obj1 = {
     fname: "Sushil",
     lname: "Kumawat",
@@ -39,6 +34,7 @@ obj2.__proto__ = obj1
 // obj1.__proto__= null
 // DRY - Do not repeat yourself
 console.log(obj1.getFullName());
+
 console.log(obj2.getFullName());
 console.log(obj2.toString());
 // Arrow function
