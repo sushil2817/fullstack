@@ -40,9 +40,6 @@
 // // calculator
 // // bmi/
 // // review
-
-
-
 const addBtn = document.getElementById('add-btn')
 const todoInput = document.getElementById('todo-input')
 const todoItemsContainor = document.getElementById('todo-items-containor')
@@ -62,8 +59,6 @@ addBtn?.addEventListener('click',()=>{
 
     todoItemsContainor?.appendChild(li)
     todoInput.value = ''
-
-
     removAll?.addEventListener('click',()=>{
         todoItemsContainor?.removeChild(todoItemsContainor)
     })
