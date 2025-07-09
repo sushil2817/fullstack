@@ -47,11 +47,13 @@ const removAll = document.getElementById('remov-All')
 
 addBtn?.addEventListener('click',()=>{
     const value1 = todoInput?.value;
-    // console.log('User entered', value1);
-    const li = document.createElement('li')
-    li.innerText = value1
-    const delButton = document.createElement('button')
-    delButton.innerText = 'X'
+    if(value1 !== ''){
+        
+        // console.log('User entered', value1);
+        const li = document.createElement('li')
+        li.innerText = value1
+        const delButton = document.createElement('button')
+        delButton.innerText = 'X'
     delButton.addEventListener('click',()=>{
         li.remove()
     })
@@ -62,5 +64,11 @@ addBtn?.addEventListener('click',()=>{
     removAll?.addEventListener('click',()=>{
         todoItemsContainor?.removeChild(todoItemsContainor)
     })
+        }else{
+            return
+        }   
 })
 
+// Review
+// calculator
+// BMI index 
