@@ -11,7 +11,7 @@ addTaskbutton?.addEventListener('click',()=>{
     taskCard.addEventListener('dragstart',()=>{
         taskCard.classList.add('flying');
     })
-    taskCard.addEventListener('dragstart',()=>{
+    taskCard.addEventListener('dragend',()=>{
         taskCard.classList.remove('flying');
     })
     todoBoard?.append(taskCard)
@@ -21,7 +21,7 @@ addTaskbutton?.addEventListener('click',()=>{
 const allBoards = document.querySelectorAll('.board');
 const allItems = document.querySelectorAll('.item');
 
-allItems.forEach((item)=>{
+allItems.forEach((item)=>{                        
     item.addEventListener('dragstart',()=>{
         item.classList.add('flying');
     })
