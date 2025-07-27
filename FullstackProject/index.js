@@ -25,7 +25,6 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-
 const port  = process.env.PORT || 4000;
 
 app.get('/', (req, res) => {
@@ -42,7 +41,7 @@ db();
 
 // user routes
 
-app.use("/api/v1/user",userRoutes)
+app.use("/api/v1/users",userRoutes)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
