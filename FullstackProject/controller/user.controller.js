@@ -2,6 +2,8 @@ import { log } from "console";
 import User from "../model/user.model.js";
 import crypto from "crypto"
 import nodemailer from "nodemailer";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 
 
 const registerUser = async(req, res) =>{
@@ -35,6 +37,8 @@ const registerUser = async(req, res) =>{
                 email,
                 password
             })
+            console.log("this is user");
+            
             console.log(user);
             
             if(!user){
@@ -115,7 +119,73 @@ const verifyUser = async (req,res) =>{
     await user.save()
 };
 
+const login  = async (req,res) =>{
+    const {email,password} = req.body
+
+    if(!email || !password){
+        return res.status(400).json(
+            {
+                message:"All fileds are required",
+            }
+        )
+    }
+
+    try {
+        const user = await User.findOne({email})
+        if(!user){
+            return res.status(400).json({
+                message:"Invalid email and password",
+            });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password)
+
+        console.log(isMatch);
+        
+
+        if(!isMatch){
+            return res.status(400).json({
+                message:"Invlaid email and password"
+            });
+        }
+
+        //
+
+        const token = jwt.sign(
+            {id:user._id, role:user.role},
+
+            "shhhhh",{
+                expiresIn:'24h'
+            }
+        );
+
+        const cookieOptions = {
+            httpOnly:true,
+            secure:true,
+            maxAge:24*60*600*1000
+        }
+        res.cookie("test",token,cookieOptions)
+
+        res.status(200).json({
+            message:"Login Success",
+            token,
+            user:{
+                id:user._id,
+                name:user.name,
+                role:user.role
+            }
+        })
 
 
+    } catch (error) {
+        res.status(400).json({
+            message:"User not found",
+            success:false,
+            error
+        })
+    }
 
-export { registerUser, verifyUser }
+}
+
+
+export { registerUser, verifyUser, login }
