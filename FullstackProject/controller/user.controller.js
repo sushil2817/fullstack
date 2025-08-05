@@ -5,7 +5,6 @@ import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 
-
 const registerUser = async(req, res) =>{
     // get data
     // validate
@@ -85,8 +84,6 @@ const registerUser = async(req, res) =>{
         })
         }
 };
-
-
 const verifyUser = async (req,res) =>{
     // get token from url
     // validate 
@@ -97,7 +94,7 @@ const verifyUser = async (req,res) =>{
     //  save 
     // return res
 
-    const {token} = res.params;
+    const {token} = req.params;
     console.log(token);
 
     if(!token){
@@ -116,9 +113,12 @@ const verifyUser = async (req,res) =>{
 
     user.isVerified = true;
     user.verificationToken = undefined
+    res.status(200).json({
+        success:true,
+        message:"user verified"
+    })
     await user.save()
 };
-
 const login  = async (req,res) =>{
     const {email,password} = req.body
 
@@ -154,7 +154,7 @@ const login  = async (req,res) =>{
         const token = jwt.sign(
             {id:user._id, role:user.role},
 
-            "shhhhh",{
+            process.env.JWT_SECRET,{
                 expiresIn:'24h'
             }
         );
@@ -164,7 +164,7 @@ const login  = async (req,res) =>{
             secure:true,
             maxAge:24*60*600*1000
         }
-        res.cookie("test",token,cookieOptions)
+        res.cookie("token",token,cookieOptions)
 
         res.status(200).json({
             message:"Login Success",
@@ -186,6 +186,81 @@ const login  = async (req,res) =>{
     }
 
 }
+const getMe = async(req,res) =>{
+    try {
+        const user = await User.findById(req.user.id).select('-password')
+        console.log(user);
+        
+        if(!user){
+            return res.status(400).json({
+                success:false,
+                message:"User not found",
+            })
+        }
+        res.status(200).json({
+                success:true,
+                user
+            })
 
 
-export { registerUser, verifyUser, login }
+    } catch (error) {
+        
+    }
+}
+const logoutUser = async(req,res) =>{
+    try {
+        res.cookie('token','',{})
+        res.status(200).json({
+        success:true,
+        message:"Logged Out successfully"
+    })
+    } catch (error) {
+        
+    }
+}
+const forgotPassword = async(req,res) =>{
+    try {
+        //  get email
+        // find user based on email => Date.now()+10*60*1000 => user.save();
+        // send email => design url
+
+    } catch (error) {
+        
+    }
+}
+const resetPassword = async(req,res) =>{
+    try {
+        // collect token from params
+        // password from req.body
+        // find user ?
+        const {token} = req.params
+        const {password} = req.body
+
+
+        try {
+            const user = await User.findOne({
+                resetPasswordToken:token,
+                resetPasswordExpires:{$gt:Date.now()}
+            })
+            // set password in user
+            // reset token in user
+            // resetexpiry inn user
+            // save
+
+        } catch (error) {
+            
+        }
+
+    } catch (error) {
+        
+    }
+}
+
+export { 
+    registerUser, 
+    verifyUser, 
+    login,getMe, 
+    logoutUser, 
+    forgotPassword,
+    resetPassword 
+}
