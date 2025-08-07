@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken"
 export const isLoggedIn = async (req,res,next)=>{
 
     // get token
-    // check token
+    // check to
     // get data from token
 
     try {
