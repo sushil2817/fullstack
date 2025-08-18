@@ -3,11 +3,8 @@ import crypto from "crypto"
 import {PrismaClient} from "@prisma/client"
 
 const prisma  = new PrismaClient();
-
 export const registerUser = async(req,res)=>{
-
     const {name,email,password,phone} = req.body
-
     if(!name|| !email || !password || !phone){
         console.log('Data is Missing');
         return res.status(400).json({
@@ -15,7 +12,6 @@ export const registerUser = async(req,res)=>{
             message:"All fileds are required"
         })
     }
-
     try {
             const existingUser = await prisma.user.findUnique({
                 where:{email}
@@ -47,11 +43,8 @@ export const registerUser = async(req,res)=>{
                 })
     }
 };
-
-
 export const loginUser = async(req,res)=>{
     const {email,password} = req.body
-
     if(!email || !password){
         return res.status(400).json({
                     success:false,

@@ -7,7 +7,7 @@ addTaskbutton?.addEventListener('click',()=>{
     const taskCard = document.createElement('p')
     taskCard.classList.add('item');
     taskCard.setAttribute('draggable',true)
-    taskCard.innerText = input;
+    taskCard.innerText = input; 
     taskCard.addEventListener('dragstart',()=>{
         taskCard.classList.add('flying');
     })
@@ -33,7 +33,7 @@ allItems.forEach((item)=>{
 allBoards.forEach(board =>{
     board.addEventListener('dragover',()=>{
         const flyingElement = document.querySelector('.flying')
-        console.log(board, 'Kuch toh mere upr se gaya',flyingElement);
+        // console.log(board, 'Kuch toh mere upr se gaya',flyingElement);
         if(flyingElement !=  null){
             board.appendChild(flyingElement);
         }
