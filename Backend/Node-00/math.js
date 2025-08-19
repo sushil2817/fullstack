@@ -8,5 +8,7 @@ function sub(a,b){
     return y = a-b;
 }
 
-exports.add = add;
-exports.sub = sub;
+module.exports = {
+    add,
+    sub
+}
