@@ -37,42 +37,35 @@ const verifyEmail =  asyncHandler(async (req,res)=>{
     // validation
 
 })
-
 const resentVerificationEmail =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
 
     // validation
 
 })
-
 const refreshAccessToken =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
 
     // validation
 
 })
-
 const forgotPssswordRequest =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
 
     // validation
 
 })
-
 const changeCurrentPassword =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
 
     // validation
 
 })
-
 const getCurrentUser =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
 
     // validation
 
 })
-
-
 
 export {registerUser};
