@@ -15,9 +15,12 @@ import { asyncHandler } from "../utils/async.handler"
 
 const registerUser =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
-
-    // validation
-    
+    if(email != null || username != null || password != null){
+        res.status(400).json({
+            "message":"Username Password Required"
+        })
+    }
+    const user = 
 })
 const loginUser =  asyncHandler(async (req,res)=>{
     const {email, username, password, role} = req.body
