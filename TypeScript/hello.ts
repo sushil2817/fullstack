@@ -8,6 +8,25 @@ function createUser(user:{firstname:string; lastname?:string}){
     const trimmedLastName:string = user.lastname.trim()
 }
 
+interface User{
+    firstname:string;
+    lastname?:string;
+    email:string;
+    profileImageURL?: string;
+}
+
+function updateUser(user:User){
+    user
+}
+
+const payload:User = {
+    firstname:'',
+    email:''
+}
+
+
+updateUser(payload)
+
 let x = add(4,4).toFixed(3)
 
 createUser({
