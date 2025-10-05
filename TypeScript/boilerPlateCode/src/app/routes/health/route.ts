@@ -8,5 +8,6 @@ export function register():Router{
     const controller = new HealthController
     
     router.get('/',controller.handleHeadlthCheck.bind(controller));
+    
     return router;
 }
