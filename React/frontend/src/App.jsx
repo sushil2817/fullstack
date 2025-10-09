@@ -2,13 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Login from './components/Login'
 
 function App() {
   const [count, setCount] = useState(0)
+  // const [value, fn] = useState(default)
+  const [name,setName] = useState('Hello World')
 
   return (
     <>
       <div>
+        <Login/>
+        <Login/>
+        <Login/>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -25,6 +31,12 @@ function App() {
           count is {count}
         
         </button>
+        <br />
+        <br />
+        This is name {name}
+        <br />
+        <br />
+        <button onClick={()=>setName(("code"))}>Change Name</button>
         <p>
 
           Edit <code>src/App.jsx</code> and save to test HMR
