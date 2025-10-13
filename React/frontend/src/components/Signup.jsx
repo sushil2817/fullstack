@@ -25,16 +25,22 @@ function Signup(){
 
         try {
             console.log(`Trying to do a signup`);
+            
             const data = await apiClient.signup(name,email,password)
+            
             console.log('Signup response: ',data);
+            
             if(data.success){
+                
                 navigate("/login")
             }else{
                 setError(data.message ?? 'Signup Failed')
             }
         } catch (error) {
+            
             console.log("Error in signup ", error)
         } finally{
+            
             setLoading(false)
         }
 
