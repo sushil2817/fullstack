@@ -13,7 +13,9 @@ function App() {
     <>
       <div>
         <Login />
+
         <Login />
+
         <Login />
 
         <a href="https://vite.dev" target="_blank">
