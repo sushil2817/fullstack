@@ -16,7 +16,6 @@ function Signup() {
     console.log(password)
     console.log(loading)
     console.log(error)
-    
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
@@ -31,13 +30,10 @@ function Signup() {
                 setError(data.message ?? 'Signup Failed')
             }
         } catch (error) {
-
             console.log("Error in signup ", error)
         } finally {
-
             setLoading(false)
         }
-
         // make an api call to backed with data
         // get response from backend
         // take action based on response
