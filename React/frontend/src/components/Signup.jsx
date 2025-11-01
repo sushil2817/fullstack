@@ -8,7 +8,6 @@ function Signup() {
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
-
     // for navigation
     const navigate = useNavigate()
     console.log(name)
@@ -38,7 +37,6 @@ function Signup() {
         // get response from backend
         // take action based on response
     }
-
     return (
         <div className="signup">
             <h1>Welcome to SignUp page</h1>

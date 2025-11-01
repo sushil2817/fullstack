@@ -20,9 +20,7 @@ const payload: User = {
     email: ''
 }
 updateUser(payload)
-
 let x = add(4, 4).toFixed(3)
-
 createUser({
     firstname: 'Sushil',
     lastname: 'Kumawat'

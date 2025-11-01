@@ -6,5 +6,4 @@ function Otp(){
         </div>
     )
 }
-
 export default Otp;
