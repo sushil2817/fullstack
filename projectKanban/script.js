@@ -16,11 +16,8 @@ addTaskbutton?.addEventListener('click',()=>{
     })
     todoBoard?.append(taskCard)
 })
-
-
 const allBoards = document.querySelectorAll('.board');
 const allItems = document.querySelectorAll('.item');
-
 allItems.forEach((item)=>{                        
     item.addEventListener('dragstart',()=>{
         item.classList.add('flying');
@@ -29,7 +26,6 @@ allItems.forEach((item)=>{
         item.classList.remove('flying');
     })
 })
-
 allBoards.forEach(board =>{
     board.addEventListener('dragover',()=>{
         const flyingElement = document.querySelector('.flying')
