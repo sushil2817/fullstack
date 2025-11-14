@@ -1,13 +1,14 @@
 import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
+import db from './utils/db.js'
 
 dotenv.config()
 
 const app = express()
 app.use(
     cors({
-        origin:"http://localhost:3000",
+        origin: process.env.BASE_URL,
         credentials:true,
         methods:['GET','POST','DELETE','OPTIONS'],
         allowedHeaders:['Content-Type','Authorization']
@@ -15,13 +16,15 @@ app.use(
 )
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-
 const port = process.env.PORT || 8080
 
 app.get('/', (req, res) => {
     res.send("Sushil")
 })
 
+// DataBase Connection
+db();
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`)
 })
