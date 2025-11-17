@@ -3,10 +3,8 @@ import dotenv from "dotenv"
 import cors from "cors"
 import db from './utils/db.js'
 
-
 // import all router
 import userRoutes from './routes/user.routes.js'
-
 
 dotenv.config()
 const app = express()
@@ -25,7 +23,6 @@ const port = process.env.PORT || 8080
 app.get('/', (req, res) => {
     res.send("Sushil")
 })
-
 // DataBase Connection
 db();
 
