@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import db from './utils/db.js'
+import cookieParser from 'cookie-parser'
 
 // import all router
 import userRoutes from './routes/user.routes.js'
@@ -17,7 +18,8 @@ app.use(
     })
 )
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
 const port = process.env.PORT || 8080
 
 app.get('/', (req, res) => {
