@@ -79,6 +79,7 @@ const registerUser = async (req, res) => {
     // send success status to user
 }
 
+
 const verifyUser = async (req, res) => {
     // get token from url
     // validate token
@@ -110,6 +111,7 @@ const verifyUser = async (req, res) => {
         success: true,
     })
 }
+
 
 const loginUser = async (req, res) => {
 
