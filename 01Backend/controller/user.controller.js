@@ -2,7 +2,6 @@ import { log } from 'console';
 import User from '../models/User.model.js'
 import crypto from "crypto"
 import nodemailer from "nodemailer"
-// import {MailtrapTransport} from "mailtrap"
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
 
@@ -38,7 +37,7 @@ const registerUser = async (req, res) => {
         const token = crypto.randomBytes(32).toString("hex")
         console.log(token);
         // save token in db
-        user.verificaitonToken = token
+        user.verificationToken = token
         await user.save()
         // send token as email to user
         const transporter = nodemailer.createTransport({
@@ -79,39 +78,47 @@ const registerUser = async (req, res) => {
     // send success status to user
 }
 
-
 const verifyUser = async (req, res) => {
-    // get token from url
-    // validate token
-    // find user based on token
-    // if not
-    // isVerified = true
-    // remove verification token
-    // save 
-    // return res
+//     // get token from url
+//     // validate token
+//     // find user based on token
+//     // if not
+//     // isVerified = true
+//     // remove verification token
+//     // save 
+//     // return res
+    console.log("this is req params");
+    
+    console.log(req.params);
+    
     const { token } = req.params
+    console.log(token);
+    
 
     if (!token) {
         return res.status(400).json({
-            message: "Invalid Token"
+            message: "Invalid Token 1"
         })
     }
-    const user = await User.findOne({ verificaitonToken: token })
+    const user = await User.findOne({ verificationToken: token })
+    console.log("this is user: ",user);
+    // console.log("token in DB:", user.verificationToken);
+
+    
     if (!user) {
         return res.status(400).json({
-            message: "Invalid Token"
+            message: "Invalid Token 2"
         });
     }
 
     user.isVerified = true;
-    user.verificaitonToken = undefined;
+    user.verificationToken = undefined;
     await user.save();
-    return res.send(200).json({
-        message: "User Verified",
+    return res.status(200).json({
+        message: "User Verified successfully",
         success: true,
     })
-}
-
+    }
 
 const loginUser = async (req, res) => {
 
@@ -151,7 +158,7 @@ const loginUser = async (req, res) => {
 
         const token = jwt.sign(
             {id:user._id,role:user.role},
-            "shhhhh",
+            process.env.SECRET_KEY,
             {expiresIn:'24h'}
         )
         console.log(token)
@@ -180,4 +187,43 @@ const loginUser = async (req, res) => {
     }
 }
 
-export { registerUser, verifyUser,loginUser }
+const getMe = async(req,res)=>{
+    try {
+        // 
+    } catch (error) {
+        
+    }
+}
+const logoutUser = async(req,res)=>{
+    try {
+        // 
+    } catch (error) {
+        
+    }
+}
+const forgotPassowrd = async(req,res)=>{
+    try {
+        // 
+    } catch (error) {
+        
+    }
+}
+const resetPassword = async(req,res)=>{
+    try {
+        // 
+    } catch (error) {
+        
+    }
+}
+
+
+
+export { 
+    registerUser,
+    verifyUser,
+    loginUser,
+    resetPassword,
+    logoutUser,
+    forgotPassowrd,
+    getMe
+} 
