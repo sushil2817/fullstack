@@ -189,14 +189,36 @@ const loginUser = async (req, res) => {
 
 const getMe = async(req,res)=>{
     try {
-        // 
+        const user =await User.findById(req.user.id).select('-password')
+            if(!user){
+                return res.status(400).json({
+                    success:false,
+                    message:"User not found"
+                })
+            }
+            res.status(200).json({
+                success:true,
+                user
+            })
+        console.log("reached at profile level");
+        
     } catch (error) {
         
     }
 }
+
 const logoutUser = async(req,res)=>{
     try {
-        // 
+        // clear the cookes
+        res.cookie('token','',
+            {
+            expires:new Date(0)
+            }
+        )
+        res.status(200).json({
+            success:true,
+            message:"Logged out successfully"
+        })
     } catch (error) {
         
     }
@@ -222,8 +244,8 @@ export {
     registerUser,
     verifyUser,
     loginUser,
+    getMe,
     resetPassword,
     logoutUser,
-    forgotPassowrd,
-    getMe
+    forgotPassowrd
 } 
