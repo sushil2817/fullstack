@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser'
 import userRoutes from './routes/user.routes.js'
 
 dotenv.config()
-const app = express()
+export const app = express()
 app.use(
     cors({
         origin: process.env.BASE_URL,

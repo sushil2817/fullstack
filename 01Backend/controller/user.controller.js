@@ -184,7 +184,7 @@ const loginUser = async (req, res) => {
 }
 const getMe = async(req,res)=>{
     try {
-        const user =await User.findById(req.user.id).select('-password')
+        const user = await User.findById(req.user.id).select('-password')
             if(!user){
                 return res.status(400).json({
                     success:false,
@@ -198,7 +198,11 @@ const getMe = async(req,res)=>{
         console.log("reached at profile level");
         
     } catch (error) {
-        
+        return res.status(500).json({
+            messgae:"Internal server error",
+            error,
+            success:"false"
+        })
     }
 }
 const logoutUser = async(req,res)=>{
