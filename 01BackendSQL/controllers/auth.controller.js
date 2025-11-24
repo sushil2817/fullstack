@@ -3,7 +3,6 @@ import bcrypt from "bcryptjs"
 import crypto from "crypto"
 import jwt from "jsonwebtoken"
 
-
 const prisma = new PrismaClient();
 
 const registerUser = async (req,res)=>{
@@ -52,7 +51,6 @@ const registerUser = async (req,res)=>{
         }
 }
 
-
 const loginUser = async (req,res)=>{
     const {email,password} = req.body;
     if(!email||!password){
@@ -61,7 +59,6 @@ const loginUser = async (req,res)=>{
                     message:"All fields are required"
                 });
     }
-
     try {
         const user = await prisma.user.findUnique({
             where:email
