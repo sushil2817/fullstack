@@ -1,4 +1,4 @@
-import {prismaClient} from "@prisma/client"
+import {PrismaClient} from "@prisma/client"
 import bcrypt from "bcryptjs"
 import crypto from "crypto"
 import jwt from "jsonwebtoken"
@@ -9,7 +9,7 @@ const registerUser = async (req,res)=>{
     const{name,email,password,phone} = req.body;
     if(!name|| !email || !password || !phone)
         {
-            console.log("Data is Missgin");
+            console.log("Data is Missing");
             return res.status(400).json({
                 success:false,
                 message:"All fields are required"
