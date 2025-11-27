@@ -4,7 +4,6 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
-
 const registerUser = async (req, res) => {
     const { name, email, password, phone } = req.body;
     if (!name || !email || !password || !phone) {
