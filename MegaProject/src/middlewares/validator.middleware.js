@@ -27,6 +27,7 @@ export const validate = (req,res,next) =>{
     if(errors.isEmpty()){
         return next()
     }
+
     const extractedError = [];
     errors.array().map((err) => 
         extractedError.push(
