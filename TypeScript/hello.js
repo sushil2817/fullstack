@@ -16,10 +16,8 @@ var payload = {
     firstname: '',
     email: ''
 };
-
 updateUser(payload);
 var x = add(4, 4).toFixed(3);
-
 createUser({
     firstname: 'Sushil',
     lastname: 'Kumawat'
