@@ -1,17 +1,14 @@
 function add(x, y) {
     return x + y;
 }
-
 function createUser(user) {
     if (!user.lastname)
         return;
     var trimmedLastName = user.lastname.trim();
 }
-
 function updateUser(user) {
     user;
 }
-
 var payload = {
     firstname: '',
     email: ''
