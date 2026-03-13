@@ -1,5 +1,6 @@
 import {useState,useEffect} from "react"
 export function App(){
+    
     const [message, setMessge] = useState("Loading...")
     useEffect(()=>{
         fetch(`http://localhost:3000/api`)
@@ -7,6 +8,7 @@ export function App(){
             .then((data)=>setMessge(data.message))
             .catch((err)=>setMessge ("Failed to Load"))
     },[])
+
     return (
         <div>
             <h1>Welcom to chai code</h1>
