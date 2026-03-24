@@ -3,11 +3,13 @@ export function App(){
     
     const [message, setMessge] = useState("Loading...")
     useEffect(()=>{
-        fetch(`http://localhost:3000/api`)
+        fetch(`https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10`)
             .then((res)=>res.json())
-            .then((data)=>setMessge(data.message))
+            .then((data)=>setMessge(data.totalPages))
             .catch((err)=>setMessge ("Failed to Load"))
-    },[])
+    },[]);
+
+    // setMessge( prev => prev+1)
 
     return (
         <div>
