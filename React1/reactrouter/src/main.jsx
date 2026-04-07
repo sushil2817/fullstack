@@ -4,12 +4,14 @@ import { RouterProvider,createRoute } from '@tanstack/react-router'
 
 import {routeTree} from "./routeTree.gen"
 
+const router = createRoute({routeTree});
+
 const rootElement  = (document.getElementById('root'))
 if(!rootElement?.innerHTML){
   const root = ReactDom.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router} />
     </StrictMode>
   )
 }
