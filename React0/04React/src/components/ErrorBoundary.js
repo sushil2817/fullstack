@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 export class ErrorBoundary extends Component{
+    
     constructor(props){
         super(props)
         this.state = {
@@ -8,9 +9,11 @@ export class ErrorBoundary extends Component{
             message:""
         }
     }
+
     componentDidCatch(error,info){
         console.error("Caught by EB",error,info)
     }
+
     render(){
         if(this.state.hasError){
             <div>
