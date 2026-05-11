@@ -13,6 +13,7 @@ export function App() {
     }, []);
     // setMessge( prev => prev+1)
     return (
+
         <div>
             <h1>Welcom to chai code</h1>
             <p>Serving hot chai with react</p>
@@ -20,5 +21,6 @@ export function App() {
             {/* <AllUser/> */}
             <h3>{chai.data?.data[0].description}</h3>
         </div>
+        
     )
 }
