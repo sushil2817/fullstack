@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import AllUser from "./AllUSer.jsx";
 import { useSpecialChai } from "./hooks/useSpecialchai.js";
 export function App() {
+
     const { chai, loading, error } = useSpecialChai();
     console.log("chai", chai?.data?.data[0].description)
     const [message, setMessge] = useState("Loading...")
@@ -12,6 +13,7 @@ export function App() {
             .catch(err => setMessge("Failed to Load"))
     }, []);
     // setMessge( prev => prev+1)
+    
     return (
 
         <div>
@@ -21,6 +23,6 @@ export function App() {
             {/* <AllUser/> */}
             <h3>{chai.data?.data[0].description}</h3>
         </div>
-        
+
     )
 }
