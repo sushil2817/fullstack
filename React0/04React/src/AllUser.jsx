@@ -1,10 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-
 const AllUser = () => {
     const [data, setData] = useState([])
     const [error,setError] = useState("")
-
     useEffect(()=>{
         fetch("https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10")
         .then(res=>res.json())
