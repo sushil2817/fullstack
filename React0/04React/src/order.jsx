@@ -5,7 +5,6 @@ export function ChaiCounter(){
     const serveChai = () =>{
         setCount(prev => prev + 1 )
     }
-    
     return (
         <div>
             <h2>Chai Counter</h2>

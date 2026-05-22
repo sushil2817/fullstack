@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import AllUser from "./AllUSer.jsx";
+// import AllUser from "./AllUSer.jsx";
 import { useSpecialChai } from "./hooks/useSpecialchai.js";
 export function App() {
     const { chai, loading, error } = useSpecialChai();
