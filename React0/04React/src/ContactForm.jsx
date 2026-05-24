@@ -14,7 +14,6 @@ const ContactForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-
                 <input 
                 type="text"
                 name = "name"
@@ -22,7 +21,6 @@ const ContactForm = () => {
                 onChange={handleChange}
                 placeholder='your name'
                 />
-
                 <input 
                 type="email"
                 name = "email"
@@ -30,20 +28,16 @@ const ContactForm = () => {
                 onChange={handleChange}
                 placeholder='your email'
                 />
-
                 <textarea 
                 name = "message"
                 value = {form.message}
                 onChange={handleChange}
                 placeholder='your message'
                 />
-
                 <button type='submit' disabled={loading}>
                     {loading?"Sending...":"Send"}
                 </button>
-
             </form>
-
             {
             succesMessgae && <p style={{color:'green'}}>{succesMessgae}</p>
             }
