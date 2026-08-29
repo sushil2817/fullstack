@@ -28,26 +28,26 @@ handleFunctionV2.get('/contact-us',(req,res)=>res.end('Contact Us Page'));
 handleFunctionV2.get('/about-us',(req,res)=> res.end('About Us Page'));
 
 
-// function (req,res){
-//     console.log('Incomming request Aaya...')
-//     console.log(req.method);
-//     console.log(req.url);
-//     switch(req.method){
-//         case 'GET':
-//             {
-//                 if(req.url === '/') return res.end('HomePage');
-//                 if(req.url === '/contact-us') return res.end('contact-us');
-//                 if(req.url === '/about-us') return res.end('about-us');
-//             }
-//             break;
-//         case 'POST':
-//             {
+function (req,res){
+    console.log('Incomming request Aaya...')
+    console.log(req.method);
+    console.log(req.url);
+    switch(req.method){
+        case 'GET':
+            {
+                if(req.url === '/') return res.end('HomePage');
+                if(req.url === '/contact-us') return res.end('contact-us');
+                if(req.url === '/about-us') return res.end('about-us');
+            }
+            break;
+        case 'POST':
+            {
 
-//             }
-//             break;
-//     }
-//     res.end('Ye lo ji response')
-// }
+            }
+            break;
+    }
+    res.end('Ye lo ji response')
+}
 
 // const server = http.createServer(handleFunctionV2);
 
