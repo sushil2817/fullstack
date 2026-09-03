@@ -5,7 +5,7 @@ setTimeout(()=>console.log('Set Timeout'), 0)
 setImmediate(()=> console.log('Set Immediate') );
 
 
-fs.readFile('sample.txt','utf-8',function(error,data){
+fs.readFile('sample.txt','utf-8',function(error,data){k
 
 setTimeout(()=>console.log('Set Timeout inside fs 1'), 0)
 
