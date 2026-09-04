@@ -13,10 +13,8 @@ const registerUser = async (req,res) =>{
         //save token in db
         //send token as email to user
         //send success status to user
-
         // console.log(req)
         const {name,email,password} = req.body
-
         // if(password.length > 6){
         //     console.log("Passwor dis less then 6")
         //    }
@@ -25,7 +23,6 @@ const registerUser = async (req,res) =>{
                 messgae:"All fileds are required"
             })
         }
-        
         try{
             const exisitingUser = await User.findOne({email})
             if(exisitingUser){ 
@@ -33,25 +30,20 @@ const registerUser = async (req,res) =>{
                     message:"User already exists"
                 })
             }
-
             const user = await User.create({
                 name,
                 email,
                 password
             })
-
             if(!user){
                 return res.status(400).json({
                     message:"User not registered."
                 })
             }
-
             const token = crypto.randomBytes(32).toString("hex")
             console.log(token);
             user.verificationToken = token
-            
             await user.save()
-
             // send
         // Create a test account or replace with real credentials.
         const transporter = nodemailer.createTransport({
@@ -63,7 +55,6 @@ const registerUser = async (req,res) =>{
             pass: process.env.MAILTRAP_PASSWORD
             }
         });
-
         const mailOption = {
             from: process.env.MAILTRAP_SENDEREMAI,
             to: user.email,
@@ -73,13 +64,8 @@ const registerUser = async (req,res) =>{
             `, // plain‑text body
             // html: "<b>Hello world?</b>", // HTML body
         }
-        
-            
         }catch (error){
-
         }
-        
-
 };
 
 
