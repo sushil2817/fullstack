@@ -22,7 +22,6 @@ const registerUser = async(req, res) =>{
                 message:"All fields are required"
             })
         }
-    
     try {
             const existingUser = await User.findOne({email})
             if(existingUser){
@@ -30,25 +29,20 @@ const registerUser = async(req, res) =>{
                     message:"User already exists"
                 })
             }
-
             const user = await User.create({
                 name,
                 email,
                 password
             })
             console.log("this is user");
-            
             console.log(user);
-            
             if(!user){
                 return res.status(400).json({
                     message:"User not registered"
                 });
             }
-
         const token =  crypto.randomBytes(32).toString("hex")
         console.log(token);
-
         user.verificationToken = token
         await user.save()
         // send email
@@ -61,7 +55,6 @@ const registerUser = async(req, res) =>{
             pass: process.env_MAILTRAP_PASSWORD
         },
 });
-
         const mailOptions = {
             from: process.env_MAILTRAP_SENDEREMAIL,
             to: user.email,
@@ -70,7 +63,6 @@ const registerUser = async(req, res) =>{
             ${process.env.BASE_URL}/api/v1/users/verify/${token}
             `, 
         }
-
         const emailDone = await transporter.sendMail(mailOptions)
         res.status(200).json({
             message:"User registerd successfully",
@@ -93,24 +85,19 @@ const verifyUser = async (req,res) =>{
     //  remove verification token
     //  save 
     // return res
-
     const {token} = req.params;
     console.log(token);
-
     if(!token){
         return res.status(400).json({
             message: "Invalid token"
-
         })
     }
     const user = await User.findOne({verificationToken:token})
     if(!user){
         return res.status(400).json({
             message: "Invalid token"
-
         });
     }
-
     user.isVerified = true;
     user.verificationToken = undefined
     res.status(200).json({
@@ -121,7 +108,6 @@ const verifyUser = async (req,res) =>{
 };
 const login  = async (req,res) =>{
     const {email,password} = req.body
-
     if(!email || !password){
         return res.status(400).json(
             {
@@ -129,7 +115,6 @@ const login  = async (req,res) =>{
             }
         )
     }
-
     try {
         const user = await User.findOne({email})
         if(!user){
@@ -137,35 +122,26 @@ const login  = async (req,res) =>{
                 message:"Invalid email and password",
             });
         }
-
         const isMatch = await bcrypt.compare(password, user.password)
-
         console.log(isMatch);
-        
-
         if(!isMatch){
             return res.status(400).json({
                 message:"Invlaid email and password"
             });
         }
-
         //
-
         const token = jwt.sign(
             {id:user._id, role:user.role},
-
             process.env.JWT_SECRET,{
                 expiresIn:'24h'
             }
-        );
-
+        )
         const cookieOptions = {
             httpOnly:true,
             secure:true,
             maxAge:24*60*600*1000
         }
         res.cookie("token",token,cookieOptions)
-
         res.status(200).json({
             message:"Login Success",
             token,
@@ -175,8 +151,6 @@ const login  = async (req,res) =>{
                 role:user.role
             }
         })
-
-
     } catch (error) {
         res.status(400).json({
             message:"User not found",
@@ -184,7 +158,6 @@ const login  = async (req,res) =>{
             error
         })
     }
-
 }
 const getMe = async(req,res) =>{
     try {
@@ -201,10 +174,8 @@ const getMe = async(req,res) =>{
                 success:true,
                 user
             })
-
-
     } catch (error) {
-        
+        console.log("This is error",error);
     }
 }
 const logoutUser = async(req,res) =>{
